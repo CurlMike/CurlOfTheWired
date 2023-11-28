@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Curl Of The Wired
+# The Wired
 Based on the anime series "Serial Experiments Lain", more especifically in the alias "Lain of the wired", this is a "blog" type of website. <br>
 It will serve as a journal, and will enable me to be more familiar with web development techonologies.
 
