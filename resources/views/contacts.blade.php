@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('topbar')
+    @include('partials._topbar')
+@endsection
+
 @section('content')
     <div class="h-screen flex items-center justify-center bg-black">
         <div class="text-white font-sans text-center">

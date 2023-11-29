@@ -30,6 +30,20 @@ return [
 
     'disks' => [
 
+        'avatars' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/avatars'),
+            'url' => env('APP_URL').'/storage/avatars',
+            'visibility' => 'public',
+        ],
+        
+        'banners' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/banners'),
+            'url' => env('APP_URL').'/storage/banners',
+            'visibility' => 'public',
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
