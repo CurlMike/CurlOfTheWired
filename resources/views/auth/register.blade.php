@@ -1,19 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
-</head>
-<body>
-    <form action="{{ route('register.createAccount') }}" method="post">
-        @csrf
-        <input type="text" name="username" placeholder="Username">
-        <input type="text" name="name" placeholder="Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="password_confirmation" placeholder="Confirm Password">
-        <button type="submit">Register</button>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="h-screen flex items-center justify-center bg-black">
+        <div class="text-white font-sans text-center">
+            <h1 class="text-4xl font-bold mb-4">Create New Account</h1>
+            <form action="{{ route('register.createAccount') }}" method="post">
+                @csrf
+                <div class="mb-4">
+                    <input class="bg-transparent border border-white p-2" type="text" name="username" placeholder="Username">
+                    @error('username')
+                        <p class="text-red-500 mt-2">! {{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <input class="bg-transparent border border-white p-2" type="text" name="name" placeholder="Name">
+                    @error('name')
+                        <p class="text-red-500 mt-2">! {{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <input class="bg-transparent border border-white p-2" type="email" name="email" placeholder="Email">
+                    @error('email')
+                        <p class="text-red-500 mt-2">! {{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <input class="bg-transparent border border-white p-2" type="password" name="password" placeholder="Password">
+                    @error('passowrd')
+                        <p class="text-red-500 mt-2">! {{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <input class="bg-transparent border border-white p-2" type="password" name="password_confirmation" placeholder="Confirm Password">
+                    @error('password_confirmation')
+                        <p class="text-red-500 mt-2">! {{ $message }}</p>
+                    @enderror
+                </div>
+                <button class="bg-transparent border hover:bg-gray-500 border-white text-white p-2" type="submit">Register</button>
+                <button class="bg-transparent border hover:bg-gray-500 border-white text-white p-2 ml-2" type="button" onclick="window.location.href='{{ route('welcome') }}'">Return</button>
+            </form>
+        </div>
+    </div>
+@endsection
