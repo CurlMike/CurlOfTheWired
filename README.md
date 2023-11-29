@@ -5,7 +5,7 @@ It will serve as a journal, and will enable me to be more familiar with web deve
 Hosted using InfinityFree.
 
 <p align="center">
-    <img src="public/images/navi.gif" width="50%" height="50%">
+    <img src="public/images/naviBW.png" width="50%" height="50%">
 </p>
 
 <p align="center">Don't lose yourself.</p>
