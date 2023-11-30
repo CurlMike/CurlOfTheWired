@@ -21,3 +21,16 @@
     line-height: 1.5em;
     color: #000;
 }
+
+html {
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    display: none; /* make scrollbar dissapear */
+}
+
+.content-container {
+    margin-top: 60px;
+}
