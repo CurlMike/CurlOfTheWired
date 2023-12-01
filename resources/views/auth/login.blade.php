@@ -11,8 +11,8 @@
             <form action="{{ route('login.auth') }}" method="post">
                 @csrf
                 <div class="mb-4">
-                    <input class="bg-transparent border border-white p-2" type="username" name="username" id="username" placeholder="Username" required>
-                    @error('username')
+                    <input class="bg-transparent border border-white p-2" type="account_name" name="account_name" id="account_name" placeholder="Account name" required>
+                    @error('account_name')
                         <p class="text-red-500 mt-2">! {{ $message }}</p>
                     @enderror
                 </div>

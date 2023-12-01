@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'username' => ['required'],
+            'account_name' => ['required'],
             'password' => ['required'],
         ]);
 
@@ -25,7 +25,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'Username does not exist.',
+            'account_name' => 'Account does not exist.',
             'password' => 'Password does not match.'
         ]);
     }

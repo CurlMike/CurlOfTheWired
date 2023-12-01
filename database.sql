@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `username` varchar(255) NOT NULL,
-    `name` varchar(255) NOT NULL,
+    `account_name` varchar(255) NOT NULL,
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
     `user_type` ENUM('owner', 'admin', 'user') NOT NULL DEFAULT 'user',

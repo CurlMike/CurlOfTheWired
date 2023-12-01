@@ -17,8 +17,8 @@
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <input class="bg-transparent border border-white p-2" type="text" name="name" placeholder="Name">
-                    @error('name')
+                    <input class="bg-transparent border border-white p-2" type="text" name="account_name" placeholder="Account Name">
+                    @error('account_name')
                         <p class="text-red-500 mt-2">! {{ $message }}</p>
                     @enderror
                 </div>

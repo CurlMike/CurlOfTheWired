@@ -13,7 +13,7 @@
         <!-- Right side: User status and buttons -->
         <div class="flex items-center">
             @auth
-                <p class="mr-4 text-blue-500">Signed in as {{ auth()->user()->name }}</p>
+                <p class="mr-4 text-blue-500">Signed in as {{ auth()->user()->username }}</p>
                 <a class="hover:underline" href="{{ route('login.logout')}}">Log out</a>
             @else
                 <p class="mr-4 text-blue-500">Viewing as Guest</p>
