@@ -4,7 +4,7 @@
         <div class="flex items-center">
             <a class="hover:underline mr-4" href="{{ url('/') }}">Home</a>
             <a class="hover:underline mr-4" href="{{ url('/search') }}">Search</a>
-            <a class="hover:underline" href="">Profile</a>
+            <a class="hover:underline" href="{{ route('user.index', ['account_name' => auth()->user()->account_name])}}">Profile</a>
         </div>
 
         <!-- Middle: Website name -->
