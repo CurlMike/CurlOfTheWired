@@ -34,3 +34,15 @@ html {
 .content-container {
     margin-top: 60px;
 }
+
+.profile-details {
+    margin-right: 32rem;
+    justify-content: center;
+}
+
+.bio {
+    margin-left: 36rem;
+    /* Frontend 💀💀💀 
+    meter isto a dar independentemente da janela
+    */
+}
