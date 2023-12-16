@@ -19,6 +19,8 @@ class UserController extends Controller
             abort(404);
         }
 
-        return view('users', ['user' => $user]);
+        $entries = $user->entries()->orderBy('created_at', 'desc')->get();
+
+        return view('users', ['user' => $user, 'entries' => $entries]);
     }
 }

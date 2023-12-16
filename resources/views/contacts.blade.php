@@ -9,10 +9,20 @@
         <div class="text-white font-sans text-center">
             <h1 class="text-4xl font-bold mb-4">Contacts</h1>
             <hr class="w-64 h-1 mx-auto my-4 bg-white border-0 rounded md:my-6 dark:bg-gray-700">
-            <p class="mb-4">Discord: curlmike <br>
-                <a href="https://twitter.com/curlmike/">Twitter</a> <br>
-                <a href="https://github.com/curlmike/">GitHub</a> <br>
-            </p>
+            <div class="icons mb-4">
+                <div class="icon-link">
+                    <i class="fa-brands fa-discord"></i>
+                    <a href="">Discord: CurlMike</a><br>
+                </div>
+                <div class="icon-link">
+                    <i class="fa-brands fa-twitter"></i>
+                    <a href="https://twitter.com/curlmike/">Twitter</a> <br>
+                </div>
+                <div class="icon-link">
+                    <i class="fa-brands fa-github"></i>
+                    <a href="https://github.com/curlmike/">GitHub</a>
+                </div>
+            </div>
             <ul class="mb-4">
                 <li class="inline-block relative">
                     <a href="{{ url('/') }}" class="text-white-300 font-bold hover:text-blue-500 mr-4">Return</a>

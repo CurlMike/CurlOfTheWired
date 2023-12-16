@@ -8,10 +8,11 @@
         </div>
     
         <!-- Profile Picture -->
-        <div class="flex -mt-14 justify-center items-center" style="margin-right: 520px;">
-            <div class="w-32 h-32 rounded-full overflow-hidden">
+        <div class="flex -mt-14 justify-center items-center">
+            <div class="w-32 h-32 rounded-full overflow-hidden mr-72">
                 <img src="{{ asset('storage/avatars/' . $user->avatar)}}" alt="Profile Picture" class="rounded-full" style="border: 4px solid #000000;">
             </div>
+            <button class="white-border-btn -mb-10 ml-44">Edit Profile</button>
         </div>
         
         <!-- Profile Information -->
@@ -25,6 +26,14 @@
         </div>
         <div class="bio">
             <p class="text-gray-300">{{ $user->bio }}</p>
+        </div>
+        <hr class="w-96 h-1 mx-auto my-4 bg-white border-0 rounded md:my-6 dark:bg-gray-700" />
+        <div class="text-white text-center">
+            <div class="entries">
+                @foreach ($entries as $entry)
+                    @include('partials._entry', ['entry' => $entry])
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection
