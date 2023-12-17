@@ -3,7 +3,7 @@
         <!-- Banner -->
         <div class="flex justify-center space-x-0">
             <div class="top-0 bottom-0 left-0 w-px bg-white"></div>
-            <img src="{{ asset('storage/banners/' . $user->banner)}}" alt="Banner" class="w-256 h-128 object-cover">
+            <img src="{{ asset('storage/banners/' . $user->banner)}}" alt="Banner" class="banner object-cover object-center">
             <div class="top-0 bottom-0 right-0 w-px bg-white"></div>
         </div>
     
@@ -12,7 +12,9 @@
             <div class="w-32 h-32 rounded-full overflow-hidden mr-72">
                 <img src="{{ asset('storage/avatars/' . $user->avatar)}}" alt="Profile Picture" class="rounded-full" style="border: 4px solid #000000;">
             </div>
-            <button class="white-border-btn -mb-10 ml-44">Edit Profile</button>
+            <a href={{ route('user.edit', [ 'account_name' => $user->account_name])}} class="-mb-10 ml-44">
+                <button class="white-border-btn">Edit Profile</button>
+            </a>
         </div>
         
         <!-- Profile Information -->

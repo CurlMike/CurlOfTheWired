@@ -26,6 +26,10 @@ html {
     overflow: scroll;
 }
 
+body {
+    background-color: black;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     display: none; /* make scrollbar dissapear */
@@ -64,12 +68,27 @@ html {
     background-color: aliceblue;
 }
 
-.icons p{
-    margin: 0;
+.icons .icon-link:hover{
+    color:rgb(0, 110, 255);
 }
 
-.icons .icon-link:hover{
-    color:aqua;
+.toggle-checkbox:checked {
+    transform: translateX(1rem);
+}
+
+.banner {
+    width: 736px;
+    height: 236px;
+    max-width: 736px;
+    max-height: 236px;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: white;
+}
+
+.toggle-checkbox:checked {
+    background-color: black;
 }
 
 .entry {
