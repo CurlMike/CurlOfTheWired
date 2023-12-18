@@ -21,7 +21,7 @@ CREATE TABLE `entries` (
     `user_id` int(11) NOT NULL,
     `title` varchar(255),
     `content` text NOT NULL,
-    `media_path` varchar(255),
+    `media` varchar(255),
     `created_at` datetime NOT NULL,
     `updated_at` datetime NOT NULL,
     PRIMARY KEY (`id`),

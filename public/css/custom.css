@@ -30,6 +30,15 @@ body {
     background-color: black;
 }
 
+textarea {
+    resize: none;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     display: none; /* make scrollbar dissapear */
@@ -69,6 +78,20 @@ body {
     margin-top: 10px;
 }
 
+.create-entry-btn {
+    background-color: rgb(85, 1, 181);
+    color: #ffffff;
+    border: 2px solid rgb(85, 1, 181);
+    border-radius: 999px;
+    padding: 4px 8px;
+    margin-top: 0.25rem;
+}
+
+.create-entry-btn:hover {
+    background-color: rgb(59, 3, 170);
+    border: 2px solid rgb(59, 3, 170);
+}
+
 .white-border-btn:hover {
     background-color: grey;
 }
@@ -79,6 +102,10 @@ body {
 
 .icons .icon-link:hover{
     color:rgb(0, 110, 255);
+}
+
+.file-icon {
+    cursor: pointer;
 }
 
 .toggle-checkbox:checked {
@@ -110,4 +137,8 @@ body {
     max-width: 42rem;
     margin: auto;
     /* display: flex; Descomentar quando quiser q o text comece à esquerda */
+}
+
+.entry-inputs #file-input {
+    display: none;
 }

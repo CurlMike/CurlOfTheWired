@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -20,7 +21,6 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/login', 'authenticate')->name('login.auth');
     Route::get('/logout', 'logout')->name('login.logout');
 });
-
 Route::controller(RegisterController::class)->group(function () {
     Route::get('/register', 'index')->name('register.index');
     Route::post('/register', 'createAccount')->name('register.createAccount');
@@ -31,4 +31,10 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/{account_name}', 'index')->name('user.index');
     Route::get('/user/{account_name}/edit', 'editIndex')->name('user.edit');
     Route::post('/user/{account_name}/update', 'updateUser')->name('user.update');
+});
+
+// Entries
+Route::controller(EntryController::class)->group(function () {
+    Route::get('/home', 'homeIndex')->name('home');
+    Route::post('/entry/create', 'createEntry')->name('entry.create');
 });
