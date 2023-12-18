@@ -48,7 +48,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'joined_at' => 'datetime',
+        'password' => 'hashed'
     ];
 
     public function entries(): HasMany {
