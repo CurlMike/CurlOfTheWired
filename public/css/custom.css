@@ -96,3 +96,9 @@ body {
     margin-right: auto;
     max-width: 52rem;
 }
+
+.entry .entry-text {
+    max-width: 42rem;
+    margin: auto;
+    /* display: flex; Descomentar quando quiser q o text comece à esquerda */
+}
