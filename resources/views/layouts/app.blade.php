@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <script src="https://kit.fontawesome.com/e8ecbfe6ac.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="topbar-container fixed top-0 w-full z-10">

@@ -26,6 +26,10 @@ html {
     overflow: scroll;
 }
 
+body {
+    background-color: black;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     display: none; /* make scrollbar dissapear */
@@ -33,4 +37,70 @@ html {
 
 .content-container {
     margin-top: 60px;
+}
+
+.profile-details {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 47rem;
+    justify-content: start;
+}
+
+.bio {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 45rem;
+    justify-content: start;
+}
+
+.white-border-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.white-border-btn:hover {
+    background-color: grey;
+}
+
+.white-border-btn:active {
+    background-color: aliceblue;
+}
+
+.icons .icon-link:hover{
+    color:rgb(0, 110, 255);
+}
+
+.toggle-checkbox:checked {
+    transform: translateX(1rem);
+}
+
+.banner {
+    width: 736px;
+    height: 236px;
+    max-width: 736px;
+    max-height: 236px;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: white;
+}
+
+.toggle-checkbox:checked {
+    background-color: black;
+}
+
+.entry {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 52rem;
+}
+
+.entry .entry-text {
+    max-width: 42rem;
+    margin: auto;
+    /* display: flex; Descomentar quando quiser q o text comece à esquerda */
 }

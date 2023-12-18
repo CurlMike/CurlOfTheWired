@@ -8,8 +8,8 @@ CREATE TABLE `users` (
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
     `user_type` ENUM('owner', 'admin', 'user') NOT NULL DEFAULT 'user',
-    `avatar_path` varchar(255) NOT NULL DEFAULT 'default_avatar.png',
-    `banner_path` varchar(255) NOT NULL DEFAULT 'default_banner.png',
+    `avatar` varchar(255) NOT NULL DEFAULT 'default_avatar.png',
+    `banner` varchar(255) NOT NULL DEFAULT 'default_banner.png',
     `bio` text,
     `private` boolean NOT NULL DEFAULT false,
     `joined_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -27,3 +27,19 @@ CREATE TABLE `entries` (
     PRIMARY KEY (`id`),
     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );
+
+CREATE TABLE `password_resets` (
+    `email` varchar(255) NOT NULL,
+    `token` varchar(255) NOT NULL,
+    `created_at` datetime NOT NULL
+);
+
+CREATE TABLE `follows` {
+    `follower_id` int(12) NOT NULL,
+    `following_id` int(12) NOT NULL,
+    `status` ENUM(`accepted`, `pending`) NOT NULL,
+    PRIMARY KEY (`follower_id`, `following_id`),
+    FOREIGN KEY `follower_id` REFERENCES users(id),
+    FOREIGN KEY `following_id` REFERENCES users(id)
+};
+
