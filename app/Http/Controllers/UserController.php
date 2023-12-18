@@ -28,14 +28,14 @@ class UserController extends Controller
         if(!Auth::check()) {
             return redirect()->route('login.index');
         }
-
-        // policy
-
+        
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
         } catch (\Throwable $th) {
             abort(404);
         }
+
+        $this->authorize('editProfile', $user);
 
         return view('edit_profile', ['user' => $user]);
     }
@@ -44,14 +44,14 @@ class UserController extends Controller
         if(!Auth::check()) {
             return redirect()->route('login.index');
         }
-
-        // policy
-
+ 
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
         } catch (\Throwable $th) {
             abort(404);
         }
+
+        $this->authorize('editProfile', $user);
 
         $data = $request->validate([
             'username' => 'required|max:63',

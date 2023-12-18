@@ -39,6 +39,13 @@ body {
     margin-top: 60px;
 }
 
+.avatar {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 44rem;
+    justify-content: space-between;
+}
+
 .profile-details {
     margin-right: auto;
     margin-left: auto;

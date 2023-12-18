@@ -8,13 +8,15 @@
         </div>
     
         <!-- Profile Picture -->
-        <div class="flex -mt-14 justify-center items-center">
-            <div class="w-32 h-32 rounded-full overflow-hidden mr-72">
+        <div class="flex -mt-14 items-center avatar">
+            <div class="w-32 h-32 rounded-full overflow-hidden">
                 <img src="{{ asset('storage/avatars/' . $user->avatar)}}" alt="Profile Picture" class="rounded-full" style="border: 4px solid #000000;">
             </div>
-            <a href={{ route('user.edit', [ 'account_name' => $user->account_name])}} class="-mb-10 ml-44">
-                <button class="white-border-btn">Edit Profile</button>
-            </a>
+            @can('editProfile', $user)
+                <a href={{ route('user.edit', [ 'account_name' => $user->account_name])}} class="-mb-10">
+                    <button class="white-border-btn">Edit Profile</button>
+                </a>
+            @endcan
         </div>
         
         <!-- Profile Information -->
