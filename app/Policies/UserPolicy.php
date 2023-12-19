@@ -19,4 +19,13 @@ class UserPolicy
     {
         return $user->id === $model->id;
     }
+
+    public function followAccount(User $user, Model $model): bool
+    {
+        return $user->id !== $model->id && (!$user->follows($model));
+    }
+
+    public function unfollowAccount(User $user, Model $model): bool {
+        return $user->id !== $model->id && $user->follows($model);
+    }
 }

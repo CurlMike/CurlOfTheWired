@@ -52,4 +52,18 @@ class EntryController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function deleteEntry($id) {
+        if (!Auth::check()) {
+            return redirect()->route('login.index');
+        }
+
+        $entry = Entry::find($id);
+
+        $this->authorize('deleteEntry', $entry);
+
+        $entry->delete();
+
+        return redirect()->route('home');
+    }
 }

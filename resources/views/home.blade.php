@@ -45,5 +45,33 @@
             textarea.style.height = "4rem";
             textarea.style.height = (textarea.scrollHeight)+"px";
         }
+
+        const csrf_token = '{{ csrf_token() }}';
+
+        function deleteEntry(id) {
+            if (confirm('Are you sure you want to delete this entry?')) {
+                // Ajax
+                fetch(`entry/${id}/delete`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': csrf_token,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            }
+            window.location.reload();
+        }
     </script>
 @endsection

@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS `entries`;
 DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `password_resets`;
+DROP TABLE IF EXISTS `follows`;
 
 CREATE TABLE `users` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -13,6 +15,7 @@ CREATE TABLE `users` (
     `bio` text,
     `private` boolean NOT NULL DEFAULT false,
     `joined_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `remember_token` varchar(255),
     PRIMARY KEY (`id`)
 );
 
@@ -34,12 +37,12 @@ CREATE TABLE `password_resets` (
     `created_at` datetime NOT NULL
 );
 
-CREATE TABLE `follows` {
+CREATE TABLE `follows` (
     `follower_id` int(12) NOT NULL,
     `following_id` int(12) NOT NULL,
-    `status` ENUM(`accepted`, `pending`) NOT NULL,
+    `status` ENUM('accepted', 'pending') NOT NULL,
     PRIMARY KEY (`follower_id`, `following_id`),
-    FOREIGN KEY `follower_id` REFERENCES users(id),
-    FOREIGN KEY `following_id` REFERENCES users(id)
-};
+    FOREIGN KEY (`follower_id`) REFERENCES users(id),
+    FOREIGN KEY (`following_id`) REFERENCES users(id)
+);
 

@@ -31,10 +31,13 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/{account_name}', 'index')->name('user.index');
     Route::get('/user/{account_name}/edit', 'editIndex')->name('user.edit');
     Route::post('/user/{account_name}/update', 'updateUser')->name('user.update');
+    Route::post('/user/{account_name}/follow', 'follow')->name('user.follow');
+    Route::delete('/user/{account_name}/unfollow', 'unfollow')->name('user.unfollow');
 });
 
 // Entries
 Route::controller(EntryController::class)->group(function () {
     Route::get('/home', 'homeIndex')->name('home');
     Route::post('/entry/create', 'createEntry')->name('entry.create');
+    Route::delete('/entry/{id}/delete', 'deleteEntry')->name('entry.delete');
 });

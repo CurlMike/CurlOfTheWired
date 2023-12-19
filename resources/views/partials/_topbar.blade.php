@@ -3,7 +3,7 @@
         <!-- Left side: Home and Search buttons -->
         <div class="flex items-center icons">
             <div class="mr-4 icon-link">
-                <a href="{{ url('/') }}">Home
+                <a href="{{ url('/home') }}">Home
                     <i class="fa-solid fa-house"></i>
                 </a>
             </div>

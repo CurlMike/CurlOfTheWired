@@ -3,11 +3,11 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     outline: none;
-    border-radius: 50%;
     width: 1.5em;
     height: 1.5em;
-    border: 2px solid #000;
+    border: 2px solid #fff;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 #remember:checked {
@@ -18,7 +18,6 @@
     content: '\2713'; /* Unicode checkmark character */
     display: block;
     text-align: center;
-    line-height: 1.5em;
     color: #000;
 }
 
@@ -78,6 +77,32 @@ input:focus {
     margin-top: 10px;
 }
 
+.follow-button {
+    background-color: rgb(85, 1, 181);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.follow-button:hover {
+    background-color: rgb(59, 3, 170);
+}
+
+.unfollow-button {
+    background-color: black;
+    color: rgb(85, 1, 181);
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.unfollow-button:hover {
+    background-color: gray;
+}
+
 .create-entry-btn {
     background-color: rgb(85, 1, 181);
     color: #ffffff;
@@ -102,6 +127,12 @@ input:focus {
 
 .icons .icon-link:hover{
     color:rgb(0, 110, 255);
+    cursor: pointer;
+}
+
+.icons .flag-icon:hover{
+    color:rgb(255, 0, 0);
+    cursor: pointer;
 }
 
 .file-icon {

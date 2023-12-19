@@ -14,9 +14,13 @@
             </div>
             <p class="text-gray-500 mx-auto">{{ $entry->created_at->diffForHumans() }}</p>
             <div class="ml-auto icons">
-                <a href="" class="icon-link">
-                    <i class="fa-solid fa-bars text-xl mr-1"></i>
-                </a>
+                @if(Auth::user()->id === $entry->user_id)
+                    {{-- <i class="icon-link fa-solid fa-pencil text-xl mr-1"></i> --}}
+                    <i class="icon-link fa-solid fa-trash text-xl" onclick="deleteEntry({{ $entry->id }})"></i>
+                @endif
+                @if(Auth::user()->id !== $entry->user_id)
+                    <i class="flag-icon fa-solid fa-flag text-xl"></i>
+                @endif
             </div>
         </div>
         <h3 class="text-xl font-semibold mb-3">{{ $entry->title }}</h3>
