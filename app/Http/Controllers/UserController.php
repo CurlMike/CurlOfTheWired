@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function index($account_name) {
-        if(!Auth::check()) {
-            return redirect()->route('login.index');
-        }
 
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
@@ -27,9 +24,6 @@ class UserController extends Controller
     }
 
     public function editIndex($account_name) {
-        if(!Auth::check()) {
-            return redirect()->route('login.index');
-        }
         
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
@@ -42,11 +36,8 @@ class UserController extends Controller
         return view('edit_profile', ['user' => $user]);
     }
 
-    public function updateUser(Request $request, $account_name) {
-        if(!Auth::check()) {
-            return redirect()->route('login.index');
-        }
- 
+    public function updateUser(Request $request, $account_name) { 
+
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
         } catch (ModelNotFoundException $e) {

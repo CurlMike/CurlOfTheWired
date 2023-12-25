@@ -32,7 +32,7 @@
                 <a class="icon-link" href="{{ route('login.logout')}}">Log out</a>
             @else
                 <p class="mr-4 text-blue-500">Viewing as Guest</p>
-                <a class="icon-link" href="{{ route('login.index') }}">Sign in</a>
+                <a class="icon-link" href="{{ route('login') }}">Sign in</a>
             @endauth
         </div>
     </div>

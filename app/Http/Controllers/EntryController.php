@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class EntryController extends Controller
 {
     public function homeIndex() {
-        if (!Auth::check()) {
-            return redirect()->route('login.index');
-        }
 
         $entries = Entry::with('user')->orderBy('created_at', 'desc')->get();
 
@@ -21,9 +18,6 @@ class EntryController extends Controller
     }
 
     public function createEntry(Request $request) {
-        if (!Auth::check()) {
-            return redirect()->route('login.index');
-        }
 
         $user = Auth::user();
 
@@ -54,9 +48,6 @@ class EntryController extends Controller
     }
 
     public function deleteEntry($id) {
-        if (!Auth::check()) {
-            return redirect()->route('login.index');
-        }
 
         $entry = Entry::find($id);
 

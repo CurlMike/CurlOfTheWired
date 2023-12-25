@@ -23,13 +23,13 @@ class LoginController extends Controller
         if (auth()->attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return redirect()->route('home');
+            return redirect()->intended('home');
         }
 
         return back()->withErrors([
             'account_name' => 'Account does not exist.',
             'password' => 'Password does not match.'
-        ]);
+        ])->onlyInput('account_name');
     }
 
     public function logout(Request $request)

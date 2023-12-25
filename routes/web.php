@@ -3,7 +3,9 @@
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 // Welcome
@@ -17,7 +19,7 @@ Route::view('/contacts', 'contacts')->name('contact');
 
 // Auth
 Route::controller(LoginController::class)->group(function () {
-    Route::get('/login', 'index')->name('login.index');
+    Route::get('/login', 'index')->name('login');
     Route::post('/login', 'authenticate')->name('login.auth');
     Route::get('/logout', 'logout')->name('login.logout');
 });
@@ -26,18 +28,29 @@ Route::controller(RegisterController::class)->group(function () {
     Route::post('/register', 'createAccount')->name('register.createAccount');
 });
 
-// Users
-Route::controller(UserController::class)->group(function () {
-    Route::get('/user/{account_name}', 'index')->name('user.index');
-    Route::get('/user/{account_name}/edit', 'editIndex')->name('user.edit');
-    Route::post('/user/{account_name}/update', 'updateUser')->name('user.update');
-    Route::post('/user/{account_name}/follow', 'follow')->name('user.follow');
-    Route::delete('/user/{account_name}/unfollow', 'unfollow')->name('user.unfollow');
+Route::middleware(['auth'])->group(function () {
+
+    // Users
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/user/{account_name}', 'index')->name('user.index');
+        Route::get('/user/{account_name}/edit', 'editIndex')->name('user.edit');
+        Route::post('/user/{account_name}/update', 'updateUser')->name('user.update');
+        Route::post('/user/{account_name}/follow', 'follow')->name('user.follow');
+        Route::delete('/user/{account_name}/unfollow', 'unfollow')->name('user.unfollow');
+    });
+    
+    // Entries
+    Route::controller(EntryController::class)->group(function () {
+        Route::get('/home', 'homeIndex')->name('home');
+        Route::post('/entry/create', 'createEntry')->name('entry.create');
+        Route::delete('/entry/{id}/delete', 'deleteEntry')->name('entry.delete');
+    });
+
+    // Search
+    Route::controller(SearchController::class)->group(function () {
+        Route::get('/search', 'searchIndex')->name('search.index');
+        Route::get('/search/user', 'searchUser')->name('search.searchUser');
+    });
 });
 
-// Entries
-Route::controller(EntryController::class)->group(function () {
-    Route::get('/home', 'homeIndex')->name('home');
-    Route::post('/entry/create', 'createEntry')->name('entry.create');
-    Route::delete('/entry/{id}/delete', 'deleteEntry')->name('entry.delete');
-});
+

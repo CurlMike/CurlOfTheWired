@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-scroll">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <script src="https://kit.fontawesome.com/e8ecbfe6ac.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-black">
     <div class="topbar-container fixed top-0 w-full z-10">
         @yield('topbar')
     </div>

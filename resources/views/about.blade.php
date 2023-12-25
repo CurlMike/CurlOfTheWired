@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="h-screen flex items-center justify-center bg-black">
+    <div class="h-screen flex items-center justify-center about-me">
         <div class="text-white font-sans text-center">
             <h1 class="text-4xl font-bold mb-4">About Me</h1>
             <hr class="w-64 h-1 mx-auto my-4 bg-white border-0 rounded md:my-6 dark:bg-gray-700">
@@ -28,7 +28,7 @@
                 </li>
                 @guest
                 <li class="inline-block relative">
-                    <a href="{{ route('login.index') }}" class="text-white-300 font-bold hover:text-blue-500 mr-4 ml-2">Log in</a>
+                    <a href="{{ route('login') }}" class="text-white-300 font-bold hover:text-blue-500 mr-4 ml-2">Log in</a>
                     <div class="h-full absolute top-0 right-0 bg-white w-0.5"></div>
                 </li>
                 <li class="inline-block relative">
