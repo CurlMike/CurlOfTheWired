@@ -24,7 +24,7 @@ class SearchController extends Controller
 
         $searchQuery = $request->input('username');
 
-        $users = User::where('username', 'LIKE', '%' . $searchQuery . '%')->get();
+        $users = User::where('username', 'LIKE', $searchQuery . '%')->get();
         
         return response()->json(['html' => view('partials._search-users', ['users' => $users])->render()]);
     }
