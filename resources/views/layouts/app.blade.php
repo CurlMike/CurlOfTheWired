@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <script src="https://kit.fontawesome.com/e8ecbfe6ac.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body class="bg-black">
-    <div class="topbar-container fixed top-0 w-full z-10">
+    <div class="fixed top-0 w-full z-10">
         @yield('topbar')
     </div>
     <div class="content-container">
         @yield('content')
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -30,6 +30,21 @@ input:focus {
     outline: none;
 }
 
+.topbar-container {
+    overflow: hidden;
+    height: 3.5rem;
+    transition: height 0.4s ease;
+}
+
+.topbar-container.expanded {
+    height: 5.2rem;
+}
+
+.topbar-container .icons,
+.topbar-container .middle-text {
+    height: 2rem;
+}
+
 .about-me {
     position: relative;
     background-color: #000000;
