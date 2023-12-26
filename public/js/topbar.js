@@ -20,6 +20,9 @@ downArrow.addEventListener("click", function () {
     if (pageStatusMap[currentPage]) {
         pageText.textContent = pageStatusMap[currentPage];
     }
+    else {
+        pageText.textContent = "Unknown";
+    }
     
     topbar.classList.toggle("expanded");
     downArrow.classList.toggle("fa-chevron-down");

@@ -34,7 +34,7 @@
             <div class="flex font-bold text-xl middle-text">
                 TheWired
                 <img src="{{asset('images/naviBW.png')}}" class="w-6 h-6 ml-2" alt="Navi Icon">
-                <button class="hover:cursor-pointer flex mt-2 justify-center">
+                <button class="hover:cursor-pointer hover:text-blue-500 flex mt-2 justify-center">
                     <i class="fa-solid fa-chevron-down text-sm ml-2" id="downArrow"></i>
                 </button>
             </div>
