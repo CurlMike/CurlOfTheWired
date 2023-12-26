@@ -21,7 +21,7 @@
                 </li>
                 @guest
                 <li class="inline-block relative">
-                    <a href="{{ route('login.index') }}" class="text-white-300 font-bold hover:text-blue-500 mr-4 ml-2">Log in</a>
+                    <a href="{{ route('login') }}" class="text-white-300 font-bold hover:text-blue-500 mr-4 ml-2">Log in</a>
                     <div class="h-full absolute top-0 right-0 bg-white w-0.5"></div>
                 </li>
                 <li class="inline-block relative">

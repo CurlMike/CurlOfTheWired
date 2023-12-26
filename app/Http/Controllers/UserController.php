@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Follow;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function index($account_name) {
-        if(!Auth::check()) {
-            return redirect()->route('login.index');
-        }
 
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
-        } catch (\Throwable $th) {
+        } catch (ModelNotFoundException $e) {
             abort(404);
         }
 
@@ -25,13 +24,10 @@ class UserController extends Controller
     }
 
     public function editIndex($account_name) {
-        if(!Auth::check()) {
-            return redirect()->route('login.index');
-        }
         
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
-        } catch (\Throwable $th) {
+        } catch (ModelNotFoundException $e) {
             abort(404);
         }
 
@@ -40,14 +36,11 @@ class UserController extends Controller
         return view('edit_profile', ['user' => $user]);
     }
 
-    public function updateUser(Request $request, $account_name) {
-        if(!Auth::check()) {
-            return redirect()->route('login.index');
-        }
- 
+    public function updateUser(Request $request, $account_name) { 
+
         try {
             $user = User::where('account_name', $account_name)->firstOrFail();
-        } catch (\Throwable $th) {
+        } catch (ModelNotFoundException $e) {
             abort(404);
         }
 
@@ -87,5 +80,50 @@ class UserController extends Controller
         $user->update(array_merge($data, ['private' => request('private', 0)]));
 
         return redirect()->route('user.index', ['account_name' => $user->account_name]);
+    }
+
+    public function follow($account_name) {
+        if (!Auth::check()) {
+            return redirect()->route('login.index');
+        }
+        
+        try {
+            $authUser = auth()->user();
+            $user = User::where('account_name', $account_name)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            abort(404);
+        }
+        
+        $this->authorize('followAccount', $user);
+
+        Follow::create([
+            'follower_id' => $authUser->id,
+            'following_id' => $user->id,
+            'status' => $user->private ? 'pending' : 'accepted'
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function unfollow($account_name) {
+        if (!Auth::check()) {
+            return redirect()->route('login.index');
+        }
+        
+        try {
+            $authUser = auth()->user();
+            $user = User::where('account_name', $account_name)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            abort(404);
+        }
+        
+        $this->authorize('unfollowAccount', $user);
+
+        $followRequest = Follow::where('follower_id', $authUser->id)
+        ->where('following_id', $user->id);
+
+        $followRequest->delete();
+
+        return redirect()->back();
     }
 }

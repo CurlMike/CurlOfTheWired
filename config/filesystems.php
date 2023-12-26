@@ -44,6 +44,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'entries' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/entries'),
+            'url' => env('APP_URL').'/storage/entries',
+            'visibility' => 'public',
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

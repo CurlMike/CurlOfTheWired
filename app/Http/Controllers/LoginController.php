@@ -18,16 +18,18 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if (auth()->attempt($credentials)) {
+        $remember = $request->has('remember');
+
+        if (auth()->attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return redirect()->route('welcome');
+            return redirect()->intended('home');
         }
 
         return back()->withErrors([
             'account_name' => 'Account does not exist.',
             'password' => 'Password does not match.'
-        ]);
+        ])->onlyInput('account_name');
     }
 
     public function logout(Request $request)

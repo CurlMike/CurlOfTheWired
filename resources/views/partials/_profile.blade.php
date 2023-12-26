@@ -17,6 +17,20 @@
                     <button class="white-border-btn">Edit Profile</button>
                 </a>
             @endcan
+            @can('unfollowAccount', $user)
+                <form action="{{ route('user.unfollow', [ 'account_name' => $user->account_name])}}" method="POST" class="-mb-10">
+                    @csrf
+                    @method('DELETE')
+                    <button class="unfollow-button">Unfollow</button>
+                </form>
+            @endcan
+            @can('followAccount', $user)
+                <form action="{{ route('user.follow', [ 'account_name' => $user->account_name])}}" method="POST" class="-mb-10">
+                    @csrf
+                    @method('POST')
+                    <button class="follow-button">Follow</button>
+                </form>
+            @endcan
         </div>
         
         <!-- Profile Information -->
@@ -36,11 +50,11 @@
                 @endif
                 <div class="flex mb-2">
                     <div class="flex mr-4">
-                        <p class="text-sm font-medium mr-1">10K</p>
+                        <p class="text-sm font-medium mr-1">{{ $user->followers()->count() }}</p>
                         <p class="text-sm font-medium text-gray-600">Followers</p>
                     </div>
                     <div class="flex mr-4">
-                        <p class="text-sm font-medium mr-1">15</p>
+                        <p class="text-sm font-medium mr-1">{{ $user->followings()->count() }}</p>
                         <p class="text-sm font-medium text-gray-600">Following</p>
                     </div>
                     <div class="flex">

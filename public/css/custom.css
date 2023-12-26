@@ -3,11 +3,11 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     outline: none;
-    border-radius: 50%;
     width: 1.5em;
     height: 1.5em;
-    border: 2px solid #000;
+    border: 2px solid #fff;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 #remember:checked {
@@ -18,16 +18,69 @@
     content: '\2713'; /* Unicode checkmark character */
     display: block;
     text-align: center;
-    line-height: 1.5em;
     color: #000;
 }
 
-html {
-    overflow: scroll;
+textarea {
+    resize: none;
 }
 
-body {
-    background-color: black;
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.topbar-container {
+    overflow: hidden;
+    height: 3.5rem;
+    transition: height 0.4s ease;
+}
+
+.topbar-container.expanded {
+    height: 5.2rem;
+}
+
+.topbar-container .icons,
+.topbar-container .middle-text {
+    height: 2rem;
+}
+
+.about-me {
+    position: relative;
+    background-color: #000000;
+}
+
+.about-me::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("../images/navi_blue_powerlines.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
+}
+
+.contacts {
+    background-color: #000000;
+    position: relative;
+}
+
+.contacts::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("../images/lain_wpp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
 }
 
 ::-webkit-scrollbar {
@@ -69,6 +122,46 @@ body {
     margin-top: 10px;
 }
 
+.follow-button {
+    background-color: rgb(125, 1, 220);;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.follow-button:hover {
+    background-color: rgb(59, 3, 170);
+}
+
+.unfollow-button {
+    background-color: black;
+    color: rgb(125, 1, 220);
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.unfollow-button:hover {
+    background-color: gray;
+}
+
+.create-entry-btn {
+    background-color: rgb(85, 1, 181);
+    color: #ffffff;
+    border: 2px solid rgb(85, 1, 181);
+    border-radius: 999px;
+    padding: 4px 8px;
+    margin-top: 0.25rem;
+}
+
+.create-entry-btn:hover {
+    background-color: rgb(59, 3, 170);
+    border: 2px solid rgb(59, 3, 170);
+}
+
 .white-border-btn:hover {
     background-color: grey;
 }
@@ -79,6 +172,16 @@ body {
 
 .icons .icon-link:hover{
     color:rgb(0, 110, 255);
+    cursor: pointer;
+}
+
+.icons .flag-icon:hover{
+    color:rgb(255, 0, 0);
+    cursor: pointer;
+}
+
+.file-icon {
+    cursor: pointer;
 }
 
 .toggle-checkbox:checked {
@@ -110,4 +213,8 @@ body {
     max-width: 42rem;
     margin: auto;
     /* display: flex; Descomentar quando quiser q o text comece à esquerda */
+}
+
+.entry-inputs #file-input {
+    display: none;
 }
