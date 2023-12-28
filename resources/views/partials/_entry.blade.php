@@ -1,5 +1,5 @@
-<div class="relative bg-black text-white p-4 rounded-lg shadow-md">
-    <div class="entry">
+<div class="relative bg-black text-white rounded-lg shadow-md">
+    <div class="entry border border-gray-500 p-4">
         <div class="flex items-center mb-4">
             <div class="flex justify-between mr-4">
                 <a href="{{ route('user.index', [ 'account_name' => $entry->user->account_name ])}}">
@@ -12,14 +12,14 @@
                     </a>
                 </div>
             </div>
-            <p class="text-gray-500 mx-auto">{{ $entry->created_at->diffForHumans() }}</p>
-            <div class="ml-auto icons">
+            <p class="text-gray-500 ml-auto">{{ $entry->created_at->diffForHumans() }}</p>
+            <div class="ml-4 icons">
                 @if(Auth::user()->id === $entry->user_id)
                     {{-- <i class="icon-link fa-solid fa-pencil text-xl mr-1"></i> --}}
                     <i class="icon-link fa-solid fa-trash text-xl" onclick="deleteEntry({{ $entry->id }})"></i>
                 @endif
                 @if(Auth::user()->id !== $entry->user_id)
-                    <i class="flag-icon fa-solid fa-flag text-xl"></i>
+                    {{-- <i class="flag-icon fa-solid fa-flag text-xl"></i> --}}
                 @endif
             </div>
         </div>
@@ -29,9 +29,8 @@
         </div>
         @if ($entry->media)
             <div class="entry-media">
-                <img src="{{ asset('storage/entries/' . $entry->media)}}" class="mx-auto block img-thumbnail w-128 h-32 mb-2" alt="Media">
+                <img src="{{ asset('storage/entries/' . $entry->media)}}" class="mx-auto block img-thumbnail w-128 h-32 mb-2 rounded-xl border border-white" alt="Media">
             </div>
         @endif
-        <hr/>
     </div>
 </div>

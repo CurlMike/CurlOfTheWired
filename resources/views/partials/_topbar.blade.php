@@ -1,5 +1,5 @@
 @section('topbar')
-    <div class="topbar-container flex justify-between bg-black text-white p-4">
+    <div class="topbar-container flex justify-between text-white p-4">
         <!-- Left side: Home and Search buttons -->
         <div id="left-icons">
             <div class="flex icons">
@@ -49,15 +49,19 @@
             <div class="flex icons">
                 @auth
                     <p class="mr-4 text-blue-500">Signed in as {{ auth()->user()->username }}</p>
-                    <a class="icon-link" href="{{ route('login.logout')}}">Log out</a>
+                    <a class="icon-link" href="{{ route('login.logout')}}">Log out
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
                 @else
                     <p class="mr-4 text-blue-500">Viewing as Guest</p>
-                    <a class="icon-link" href="{{ route('login') }}">Sign in</a>
+                    <a class="icon-link" href="{{ route('login') }}">Sign in
+                        <i class="fa-solid fa-arrow-pointer"></i>
+                    </a>
                 @endauth
             </div>
-            <div class="hidden icons" id="expanded-icons">
-                <div class="icon-link text-right">
-                    <a href="">Settings
+            <div class="hidden" id="expanded-icons">
+                <div class="icons text-right">
+                    <a href="#" class="icon-link">Settings
                         <i class="fa-solid fa-gear"></i>
                     </a>
                 </div>

@@ -13,13 +13,13 @@
                 <div class="mb-4">
                     <input class="bg-transparent border border-white p-2" type="account_name" name="account_name" id="account_name" placeholder="Account name" required>
                     @error('account_name')
-                        <p class="text-red-500 mt-2">! {{ $message }}</p>
+                        <p class="text-red-500 font-bold mt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
                     <input class="bg-transparent border border-white p-2" type="password" name="password" id="password" placeholder="Password" required>
                     @error('password')
-                        <p class="text-red-500 mt-2">! {{ $message }}</p>
+                        <p class="text-red-500 font-bold mt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">

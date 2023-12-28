@@ -48,6 +48,7 @@ input:focus {
 .about-me {
     position: relative;
     background-color: #000000;
+    margin-top: -60px;
 }
 
 .about-me::before {
@@ -65,8 +66,9 @@ input:focus {
 }
 
 .contacts {
-    background-color: #000000;
     position: relative;
+    background-color: #000000;
+    margin-top: -60px;
 }
 
 .contacts::before {
@@ -80,6 +82,7 @@ input:focus {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    pointer-events: none;
     opacity: 0.2;
 }
 

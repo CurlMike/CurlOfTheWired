@@ -12,7 +12,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body class="bg-black">
-    <div class="fixed top-0 w-full z-10">
+    <div class="fixed top-0 w-full z-10 bg-black">
         @yield('topbar')
     </div>
     <div class="content-container">

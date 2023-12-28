@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -18,6 +19,12 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
+        if (!User::where('account_name', $request->account_name)->first()) {
+            return back()->withErrors([
+                'account_name' => "Account doesn't exist."
+            ]);
+        }
+
         $remember = $request->has('remember');
 
         if (auth()->attempt($credentials, $remember)) {
@@ -27,9 +34,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'account_name' => 'Account does not exist.',
             'password' => 'Password does not match.'
-        ])->onlyInput('account_name');
+        ])->withInput($request->only('account_name'));
     }
 
     public function logout(Request $request)

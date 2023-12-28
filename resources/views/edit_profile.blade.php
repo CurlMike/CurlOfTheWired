@@ -41,13 +41,13 @@
             </div>                       
             <div class="mb-4">
                 <label for="avatar" class="block mb-2 font-medium text-white text-xl">Profile Picture</label>
-                <img src="{{ asset('storage/avatars/' . $user->avatar)}}" class="mx-auto block img-thumbnail w-32 h-32 mb-2" alt="Avatar">
+                <img src="{{ asset('storage/avatars/' . $user->avatar)}}" class="mx-auto block img-thumbnail w-32 h-32 mb-2 border border-white" alt="Avatar">
                 <input type="file" class="ml-24 form-control" id="avatar" name="avatar">
                 <p class="text-gray-500 mt-1">This is the profile picture that appears on your profile page.</p>
             </div>
             <div class="mb-4">
                 <label for="banner" class="block mb-2 font-medium text-white text-xl">Profile Banner</label>
-                <img src="{{ asset('storage/banners/' . $user->banner)}}" class="mx-auto block img-thumbnail w-128 h-32 mb-2" alt="Banner">
+                <img src="{{ asset('storage/banners/' . $user->banner)}}" class="mx-auto block img-thumbnail w-32 h-32 mb-2" alt="Banner">
                 <input type="file" class="ml-24 form-control" id="banner" name="banner">
                 <p class="text-gray-500 mt-1">This is the profile banner that appears on your profile page.</p>
             </div>
