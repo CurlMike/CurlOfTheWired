@@ -30,17 +30,17 @@
             </div>
         </div>
 
-        <div id="middle-text">
-            <div class="flex font-bold text-xl middle-text">
-                TheWired
+        <div class="w-64" id="middle-text">
+            <div class="flex font-bold text-xl text-center">
+                <p>TheWired</p>
                 <img src="{{asset('images/naviBW.png')}}" class="w-6 h-6 ml-2" alt="Navi Icon">
                 <button class="hover:cursor-pointer hover:text-blue-500 flex mt-2 justify-center">
                     <i class="fa-solid fa-chevron-down text-sm ml-2" id="downArrow"></i>
                 </button>
             </div>
-            <div class="hidden justify-between items-center w-32" id="status-text">
-                <p>Viewing</p>
-                <i class="fa-solid fa-arrow-right"></i>
+            <div class="hidden items-center w-64" id="status-text">
+                <p class="mr-1">Viewing</p>
+                <i class="fa-solid fa-arrow-right mr-1"></i>
                 <p id="page-text"></p>
             </div>
         </div>
@@ -61,9 +61,11 @@
             </div>
             <div class="hidden" id="expanded-icons">
                 <div class="icons text-right">
-                    <a href="#" class="icon-link">Settings
-                        <i class="fa-solid fa-gear"></i>
-                    </a>
+                    @auth
+                        <a href="{{ route('user.settings', ['account_name' => auth()->user()->account_name])}}" class="icon-link">Settings
+                            <i class="fa-solid fa-gear"></i>
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>

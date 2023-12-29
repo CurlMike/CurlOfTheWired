@@ -126,4 +126,30 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    public function settingsIndex($account_name) {
+        try {
+            $user = User::where('account_name', $account_name)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            abort(404);
+        }
+
+        $this->authorize("AccessSettings", $user);
+
+        return view('user-settings', ['user' => $user]);
+    }
+
+    public function deleteAccount($account_name) {
+        try {
+            $user = User::where('account_name', $account_name)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            abort(404);
+        }
+
+        $this->authorize("DeleteAccount", $user);
+
+        $user->delete();
+
+        return redirect()->route('welcome');
+    }
 }

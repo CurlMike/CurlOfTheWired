@@ -37,6 +37,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/user/{account_name}/update', 'updateUser')->name('user.update');
         Route::post('/user/{account_name}/follow', 'follow')->name('user.follow');
         Route::delete('/user/{account_name}/unfollow', 'unfollow')->name('user.unfollow');
+        Route::get('/user/{account_name}/settings', 'settingsIndex')->name('user.settings');
+        Route::delete('/user/{account_name}/delete', 'deleteAccount')->name('user.delete');
     });
     
     // Entries

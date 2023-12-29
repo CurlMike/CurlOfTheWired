@@ -12,12 +12,20 @@ downArrow.addEventListener("click", function () {
         "/home": "Feed",
         "/": "Welcome page",
         "/search": "Search",
-        "/user": "User page",
         "/login": "Login form",
         "/register": "Register form"
     }
 
-    if (pageStatusMap[currentPage]) {
+    var userRegex = currentPage.match(/\/user\/(\w+)$/);
+    var userSettingsRegex = currentPage.match(/\/user\/(\w+)\/settings$/)
+
+    if (userRegex) {
+        pageText.textContent = userRegex[1] + "'s Profile";
+    }
+    else if (userSettingsRegex) {
+        pageText.textContent = userSettingsRegex[1] + "'s Settings";
+    }
+    else if (pageStatusMap[currentPage]) {
         pageText.textContent = pageStatusMap[currentPage];
     }
     else {

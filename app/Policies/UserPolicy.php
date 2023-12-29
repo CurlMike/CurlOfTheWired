@@ -28,4 +28,12 @@ class UserPolicy
     public function unfollowAccount(User $user, Model $model): bool {
         return $user->id !== $model->id && $user->follows($model);
     }
+
+    public function AccessSettings(User $user, Model $model): bool {
+        return $user->id === $model->id;
+    }
+
+    public function deleteAccount(User $user, Model $model): bool {
+        return $user->id === $model->id;
+    }
 }

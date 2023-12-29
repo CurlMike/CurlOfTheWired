@@ -12,7 +12,7 @@
             <p>NOT FOUND</p>
         </div>
         <p class="text-xl">This page does not exist.</p>
-        <p class="text-lg text-gray-500">You should look somewhere else.</p>
+        <p class="text-lg text-gray-500">You should go somewhere else.</p>
         <div class="flex mt-8 justify-between mr-auto ml-auto" style="width: 32rem;">
             <a class="flex hover:bg-gray-700" href="{{ url('/search') }}">
                 <i class="fa-solid fa-magnifying-glass text-5xl"></i>
