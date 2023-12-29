@@ -65,6 +65,10 @@ input:focus {
     opacity: 0.2;
 }
 
+.welcome {
+    margin-top: -60px;
+}
+
 .contacts {
     position: relative;
     background-color: #000000;
