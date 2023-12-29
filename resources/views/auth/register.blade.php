@@ -15,35 +15,35 @@
                 <form action="{{ route('register.createAccount') }}" method="post">
                     @csrf
                     <div class="mb-4">
-                        <input class="bg-transparent border border-white p-2" type="text" name="username" placeholder="Username">
+                        <input class="bg-transparent border border-white p-2 mb-1" type="text" name="username" placeholder="Username">
                         <p class="text-blue-200 text-md">Your username. You can change it whenever you want.</p>
                         @error('username')
                             <p class="text-red-500 mt-2">! {{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <input class="bg-transparent border border-white p-2" type="text" name="account_name" placeholder="Account Name">
+                        <input class="bg-transparent border border-white p-2 mb-1" type="text" name="account_name" placeholder="Account Name">
                         <p class="text-blue-200 text-md">Your account name. It's your identifier, so you can't change it.</p>
                         @error('account_name')
                             <p class="text-red-500 mt-2">! {{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <input class="bg-transparent border border-white p-2" type="email" name="email" placeholder="Email">
+                        <input class="bg-transparent border border-white p-2 mb-1" type="email" name="email" placeholder="Email">
                         <p class="text-blue-200 text-md">Your e-mail. Can be used for reseting your password.</p>
                         @error('email')
                             <p class="text-red-500 mt-2">! {{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <input class="bg-transparent border border-white p-2" type="password" name="password" placeholder="Password">
+                        <input class="bg-transparent border border-white p-2 mb-1" type="password" name="password" placeholder="Password">
                         <p class="text-blue-200 text-md">Your password. Choose a strong password.</p>
                         @error('passowrd')
                             <p class="text-red-500 mt-2">! {{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <input class="bg-transparent border border-white p-2" type="password" name="password_confirmation" placeholder="Confirm Password">
+                        <input class="bg-transparent border border-white p-2 mb-1" type="password" name="password_confirmation" placeholder="Confirm Password">
                         <p class="text-blue-200 text-md">Confirm the password you set.</p>
                         @error('password_confirmation')
                             <p class="text-red-500 mt-2">! {{ $message }}</p>
