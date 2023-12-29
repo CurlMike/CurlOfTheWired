@@ -18,9 +18,10 @@
             </button>
         </form>
         <hr class="ml-auto mr-auto" style="width: 45rem"/>
+        <img class="my-10 mx-auto w-64 h-64" src="{{ asset('images/lain_search.png')}}" id="searchImage">
         <div id="searchResults">
             @if(count($users) < 1)
-                <p class="text-center mt-4 text-xl">Users will appear here.</p>
+                <p class="text-center mt-4 font-semibold text-xl">Users will appear here.</p>
             @else
                 @include('partials._search-users', ['users' => $users])
             @endif
