@@ -7,29 +7,30 @@
 @section('content')
     <div class="h-screen flex items-center justify-center bg-black contacts">
         <div class="text-white font-sans text-left">
-            <h1 class="text-4xl font-bold mb-4">Contacts</h1>
-            <hr class="w-64 h-1 my-4 bg-white border-0 rounded md:my-6 dark:bg-gray-700">
+            <h1 class="text-4xl font-bold">Contacts</h1>
+            <p class="text-blue-300 text-lg">Talk to me through any of these.</p>
+            <hr class="w-64 h-1 my-2 bg-white border-0 rounded md:my-4 dark:bg-gray-700">
             <ul class="mb-4" id="contacts">
                 <li class="flex border border-white p-3">
-                    <i class="fa-brands fa-discord text-4xl hover:cursor-pointer"></i>
+                    <i class="fa-brands fa-discord text-4xl hover:cursor-pointer text-blue-700"></i>
                     <a href="#" class="ml-2">
-                        <h2 class="text-4xl font-bold">Discord</h2>
+                        <h2 class="text-4xl font-bold text-blue-700">Discord</h2>
                         <p class="font-semibold">CurlMike</p>
                         <p>Mostly online from afternoon to late night</p>
                     </a>
                 </li>
                 <li class="flex border border-white p-3">
-                    <i class="fa-brands fa-twitter text-5xl hover:cursor-pointer"></i>
+                    <i class="fa-brands fa-twitter text-5xl hover:cursor-pointer text-blue-400"></i>
                     <a href="https://twitter.com/curlmike/" class="ml-2">
-                        <h2 class="text-4xl font-bold">Twitter</h2>
+                        <h2 class="text-4xl font-bold text-blue-400">Twitter</h2>
                         <p class="font-semibold">twitter.com/curlmike</p>
                         <p>Mostly just retweet art and things i find funny</p>
                     </a>
                 </li>
                 <li class="flex border border-white p-3">
-                    <i class="fa-brands fa-github text-5xl hover:cursor-pointer"></i>
+                    <i class="fa-brands fa-github text-5xl hover:cursor-pointer text-green-400"></i>
                     <a href="https://github.com/curlmike/" class="ml-2">
-                        <h2 class="text-4xl font-bold">GitHub</h2>
+                        <h2 class="text-4xl font-bold text-green-400">GitHub</h2>
                         <p class="font-semibold">github.com/curlmike</p>
                         <p>Where I house all my projects</p>
                     </a>

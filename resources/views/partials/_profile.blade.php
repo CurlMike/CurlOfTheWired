@@ -17,20 +17,20 @@
                     <button class="white-border-btn">Edit Profile</button>
                 </a>
             @endcan
-            @can('unfollowAccount', $user)
-                <form action="{{ route('user.unfollow', [ 'account_name' => $user->account_name])}}" method="POST" class="-mb-10">
+            <div class="flex">
+                <input type="hidden" value="{{ auth()->user()->follows($user) }}" id="followsVar">
+                <input type="hidden" value="{{ auth()->user() == $user }}" id="isAuth">
+                <form action="{{ route('user.unfollow', [ 'account_name' => $user->account_name])}}" method="POST" class="-mb-10" id="unfollowForm">
                     @csrf
                     @method('DELETE')
-                    <button class="unfollow-button">Unfollow</button>
+                    <button class="unfollow-button" id="unfollowBtn" account-name="{{ $user->account_name }}">Unfollow</button>
                 </form>
-            @endcan
-            @can('followAccount', $user)
-                <form action="{{ route('user.follow', [ 'account_name' => $user->account_name])}}" method="POST" class="-mb-10">
-                    @csrf
+                <form action="{{ route('user.follow', [ 'account_name' => $user->account_name])}}" method="POST" class="-mb-10" id="followForm">
+                    <meta name="csrf-token" content="{{ csrf_token() }}">
                     @method('POST')
-                    <button class="follow-button">Follow</button>
+                    <button class="follow-button" id="followBtn" account-name="{{ $user->account_name }}">Follow</button>
                 </form>
-            @endcan
+            </div>
         </div>
         
         <!-- Profile Information -->
@@ -77,4 +77,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/follow.js') }}"></script>
 @endsection

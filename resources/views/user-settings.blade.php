@@ -9,7 +9,7 @@
         <h2 class="text-3xl text-white font-bold">{{$user->account_name}}'s Settings</h2>
         <p class="text-xl text-gray-500">Use this page to manage your settings.</p>
         <div class="mb-4 mt-10">
-            <label for="deleteAccountbtn" name="deleteAccount" class="text-white text-xl block mb-2">Delete Account</label>
+            <h3 class="text-white text-xl block mb-2">Delete Account</h3>
             <button type="button" name="deleteAccountbtn" class="text-red-500 border border-red-500 rounded-full p-2 hover:bg-red-400 hover:text-red-700 hover:cursor-pointer" id="deleteAccountbtn">Delete Account</button>
             <p class="text-gray-500 text-lg mt-2">Use this button if you want to permanently delete your account.
                 <br> This action is permanent. Please make sure you want to continue.

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -82,11 +83,11 @@ class UserController extends Controller
         return redirect()->route('user.index', ['account_name' => $user->account_name]);
     }
 
-    public function follow($account_name) {
-        if (!Auth::check()) {
-            return redirect()->route('login.index');
+    public function follow(Request $request, $account_name) {
+        if ($json = $request->json()->all()) {
+            $account_name = $json['account_name'];
         }
-        
+
         try {
             $authUser = auth()->user();
             $user = User::where('account_name', $account_name)->firstOrFail();
@@ -102,12 +103,15 @@ class UserController extends Controller
             'status' => $user->private ? 'pending' : 'accepted'
         ]);
 
-        return redirect()->back();
+        if ($json) {
+            return response()->json([], 201);
+        }
+        return redirect()->route('search.index');
     }
 
-    public function unfollow($account_name) {
-        if (!Auth::check()) {
-            return redirect()->route('login.index');
+    public function unfollow(Request $request, $account_name) {
+        if ($json = $request->json()->all()) {
+            $account_name = $json['account_name'];
         }
         
         try {
@@ -124,7 +128,10 @@ class UserController extends Controller
 
         $followRequest->delete();
 
-        return redirect()->back();
+        if ($json) {
+            return response()->json([], 201);
+        }
+        return redirect()->route('search.index');
     }
 
     public function settingsIndex($account_name) {
