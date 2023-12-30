@@ -106,7 +106,7 @@ class UserController extends Controller
         if ($json) {
             return response()->json([], 201);
         }
-        return redirect()->route('search.index');
+        return redirect()->back();
     }
 
     public function unfollow(Request $request, $account_name) {
@@ -131,7 +131,7 @@ class UserController extends Controller
         if ($json) {
             return response()->json([], 201);
         }
-        return redirect()->route('search.index');
+        return redirect()->back();
     }
 
     public function settingsIndex($account_name) {

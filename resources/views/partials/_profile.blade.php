@@ -50,7 +50,7 @@
                 @endif
                 <div class="flex mb-2">
                     <div class="flex mr-4">
-                        <p class="text-sm font-medium mr-1">{{ $user->followers()->count() }}</p>
+                        <p class="text-sm font-medium mr-1" id="followerCount">{{ $user->followers()->count() }}</p>
                         <p class="text-sm font-medium text-gray-600">Followers</p>
                     </div>
                     <div class="flex mr-4">
@@ -69,6 +69,10 @@
             <p class="text-gray-300">{{ $user->bio }}</p>
         </div>
         <hr class="w-96 h-1 mx-auto my-4 bg-white border-0 rounded md:my-6 dark:bg-gray-700" />
+        <div class="flex text-lg mx-auto text-white justify h-16 justify-between p-3 mb-4" style="max-width: 52rem;">
+            <button class="flex-1 font-semibold text-center hover:cursor-pointer hover:text-blue-600 border-r-2 border-white">Entries</button>
+            <button class="flex-1 font-semibold text-center hover:cursor-pointer hover:text-blue-600 border-l-2 border-white">Likes</button>
+        </div>
         <div class="text-white text-center">
             <div class="entries">
                 @foreach ($entries as $entry)

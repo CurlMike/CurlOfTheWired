@@ -4,6 +4,9 @@ var unfollowForm = document.getElementById("unfollowForm");
 var followBtn = document.getElementById("followBtn");
 var unfollowBtn = document.getElementById("unfollowBtn");
 
+var followerCounter = document.getElementById("followerCount");
+var followerCount = Number(followerCounter.innerHTML);
+
 var isAuth = document.getElementById("isAuth");
 
 if (isAuth.value < 1) {
@@ -36,9 +39,10 @@ followBtn.addEventListener("click", function (e) {
 
     xhr.onload = () => {
         if (xhr.readyState == 4 && xhr.status == 201) {
-            console.log("success");
             followForm.classList.toggle("hidden");
             unfollowForm.classList.toggle("hidden");
+            followerCount += 1;
+            followerCounter.innerHTML = followerCount;
         }
         else {
             console.log("error");
@@ -64,9 +68,10 @@ unfollowBtn.addEventListener("click", function (e) {
 
     xhr.onload = () => {
         if (xhr.readyState == 4 && xhr.status == 201) {
-            console.log("success");
             followForm.classList.toggle("hidden");
             unfollowForm.classList.toggle("hidden");
+            followerCount -= 1;
+            followerCounter.innerHTML = followerCount;
         }
         else {
             console.log("error");
