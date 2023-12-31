@@ -11,23 +11,28 @@
             <p class="text-gray-500">Joined on {{$user->joined_at->format("F Y")}}</p>
         </div>
         <p class="text-gray-300 mb-2">{{$user->bio}}</p>
-        @if (!auth()->user()->follows($user))
-            @can('followAccount', $user)
-                <form action="{{ route('user.follow', [ 'account_name' => $user->account_name])}}" method="POST" class="mb-4">
-                    @csrf
-                    @method('POST')
-                    <button class="follow-button">Follow</button>
-                </form>
-            @endcan
-        @else
-            @can('unfollowAccount', $user)
-                <form action="{{ route('user.unfollow', [ 'account_name' => $user->account_name])}}" method="POST" class="mb-4">
-                    @csrf
-                    @method('DELETE')
-                    <button class="unfollow-button">Unfollow</button>
-                </form>
-            @endcan
-        @endif
+        <div class="flex items-center">
+            @if (!auth()->user()->follows($user))
+                @can('followAccount', $user)
+                    <form action="{{ route('user.follow', [ 'account_name' => $user->account_name])}}" method="POST" class="mb-4">
+                        @csrf
+                        @method('POST')
+                        <button class="follow-button">Follow</button>
+                    </form>
+                @endcan
+            @else
+                @can('unfollowAccount', $user)
+                    <form action="{{ route('user.unfollow', [ 'account_name' => $user->account_name])}}" method="POST" class="mb-4">
+                        @csrf
+                        @method('DELETE')
+                        <button class="unfollow-button">Unfollow</button>
+                    </form>
+                @endcan
+            @endif
+            <button class="ml-4 text-3xl" onclick="copyUserLink('{{$user->account_name}}')">
+                <i class="fa-solid fa-link text-purple-600 hover:text-purple-400"></i>
+            </button>   
+        </div>
     </div>
 
     <style>

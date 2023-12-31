@@ -81,6 +81,10 @@
             </div>
         </div>
     </div>
+    <div class="border-2 boder-white text-blue-400 font-semibold text-center items-center p-4" id="copied-to-clipboard">
+        <p class="mr-2 text-xl">Link copied to clipboard!</p>
+        <i class="text-2xl fa-solid fa-clipboard"></i>
+    </div>
     <script src="{{ asset('js/follow.js') }}"></script>
     <script src="{{ asset('js/profile.js') }}"></script>
     <script src="{{ asset( 'js/entry.js' )}}"></script>

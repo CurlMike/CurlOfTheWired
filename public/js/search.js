@@ -48,3 +48,18 @@ searchbtn.addEventListener("click", function (e) {
     e.preventDefault();
     searchUsers();
 });
+
+function copyUserLink(account_name) {
+    let ctcModal = document.getElementById("copied-to-clipboard");
+    let url = "localhost:8000/user/" + account_name;
+    navigator.clipboard.writeText(url)
+    .then(() => {
+        console.log("copied to clipboard?");
+        ctcModal.style.display = "flex";
+        setTimeout(function () {
+            ctcModal.style.display = "none";
+        }, 3000);
+    }).catch(err => {
+        console.log("bruh");
+    })
+}
