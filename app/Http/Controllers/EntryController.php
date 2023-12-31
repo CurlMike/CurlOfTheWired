@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\User;
-
 use App\Models\Entry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,5 +56,38 @@ class EntryController extends Controller
         $entry->delete();
 
         return redirect()->route('home');
+    }
+
+    public function likeEntry(Request $request) {
+        $entryId = $request->json()->get('entry_id');
+        $entry = Entry::find($entryId);
+
+        $this->authorize('likeEntry', $entry);
+
+        $user = Auth::user();
+
+        $like = new Like();
+        $like->user_id = $user->id;
+        $like->entry_id = $entry->id;
+
+        $like->save();
+
+        return response()->json([], 201);
+    }
+
+    public function dislikeEntry(Request $request) {
+        $entryId = $request->json()->get('entry_id');
+        $entry = Entry::find($entryId);
+
+        $this->authorize('dislikeEntry', $entry);
+
+        $user = Auth::user();
+
+        $like = Like::where('user_id', $user->id)
+        ->where('entry_id', $entry->id);
+
+        $like->delete();
+
+        return response()->json([], 201);
     }
 }

@@ -51,6 +51,13 @@ input:focus {
     margin-top: -60px;
 }
 
+#copied-to-clipboard {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
 .about-me::before {
     content: "";
     position: absolute;
@@ -96,6 +103,7 @@ input:focus {
 }
 
 .content-container {
+    position: relative;
     margin-top: 60px;
 }
 
@@ -243,6 +251,19 @@ input:focus {
     margin-left: auto;
     margin-right: auto;
     max-width: 52rem;
+}
+
+#entriesBtn,
+#likesBtn {
+    border-bottom: none;
+    border-top: none;
+    transition: border-bottom 0.5s ease, border-top 0.5s ease;
+    color: #fff;
+}
+
+#entriesBtn:hover,
+#likesBtn:hover {
+    color: blue;
 }
 
 .entry .entry-text {

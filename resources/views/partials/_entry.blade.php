@@ -32,5 +32,25 @@
                 <img src="{{ asset('storage/entries/' . $entry->media)}}" class="mx-auto block img-thumbnail w-128 h-32 mb-2 rounded-xl border border-white" alt="Media">
             </div>
         @endif
+        <div class="text-xl flex justify-between">
+            <form class="mx-auto" method="POST">
+                <meta name="csrf-token" content="{{ csrf_token() }}">
+                @method('POST')
+                @if(!auth()->user()->liked($entry))
+                    <button type="button" class="flex text-gray-500 hover:text-red-500 items-center" id="likeBtn-{{$entry->id}}" onclick="likeDislikeEntry({{$entry->id}}, 'like')">
+                        <i class="flex fa-regular fa-heart mr-0.5" id="likeIcon-{{$entry->id}}"></i>
+                        <p id="likeCounter-{{$entry->id}}">{{$entry->likes()->count()}}</p>
+                    </button>
+                @else
+                    <button type="button" class="flex text-red-500 hover:text-gray-500 items-center" id="likeBtn-{{$entry->id}}" onclick="likeDislikeEntry({{$entry->id}}, 'dislike')">
+                        <i class="flex fa-solid fa-heart mr-0.5" id="likeIcon-{{$entry->id}}"></i>
+                        <p id="likeCounter-{{$entry->id}}">{{$entry->likes()->count()}}</p>
+                    </button>
+                @endif
+            </form>
+            <button class="flex mx-auto" onclick="copyToClipboard({{$entry->id}})">
+                <i class="fa-solid fa-link text-purple-600 hover:text-purple-400"></i>
+            </button>        
+        </div>
     </div>
 </div>

@@ -46,6 +46,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/home', 'homeIndex')->name('home');
         Route::post('/entry/create', 'createEntry')->name('entry.create');
         Route::delete('/entry/{id}/delete', 'deleteEntry')->name('entry.delete');
+        Route::post('/entry/{id}/like', 'likeEntry')->name('entry.like');
+        Route::delete('/entry/{id}/dislike', 'dislikeEntry')->name('entry.dislike');
     });
 
     // Search

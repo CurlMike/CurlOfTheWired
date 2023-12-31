@@ -70,8 +70,8 @@
         </div>
         <hr class="w-96 h-1 mx-auto my-4 bg-white border-0 rounded md:my-6 dark:bg-gray-700" />
         <div class="flex text-lg mx-auto text-white justify h-16 justify-between p-3 mb-4" style="max-width: 52rem;">
-            <button class="flex-1 font-semibold text-center hover:cursor-pointer hover:text-blue-600 border-r-2 border-white">Entries</button>
-            <button class="flex-1 font-semibold text-center hover:cursor-pointer hover:text-blue-600 border-l-2 border-white">Likes</button>
+            <button class="flex-1 font-semibold text-center hover:cursor-pointer border-r-2 border-l-2 border-white" id="entriesBtn">Entries</button>
+            <button class="flex-1 font-semibold text-center hover:cursor-pointer border-l-2 border-r-2 border-white" id="likesBtn">Likes</button>
         </div>
         <div class="text-white text-center">
             <div class="entries">
@@ -82,4 +82,6 @@
         </div>
     </div>
     <script src="{{ asset('js/follow.js') }}"></script>
+    <script src="{{ asset('js/profile.js') }}"></script>
+    <script src="{{ asset( 'js/entry.js' )}}"></script>
 @endsection

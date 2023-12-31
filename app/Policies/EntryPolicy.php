@@ -19,4 +19,12 @@ class EntryPolicy
     {
         return $user->id === $model->user_id;
     }
+
+    public function likeEntry(User $user, Model $model): bool {
+        return $user->id !== $model->user_id;
+    }
+
+    public function dislikeEntry(User $user, Model $model): bool {
+        return $user->id !== $model->user_id;
+    }
 }

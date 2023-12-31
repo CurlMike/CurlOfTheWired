@@ -28,7 +28,7 @@ CREATE TABLE `entries` (
     `created_at` datetime NOT NULL,
     `updated_at` datetime NOT NULL,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE `password_resets` (
@@ -42,7 +42,16 @@ CREATE TABLE `follows` (
     `following_id` int(12) NOT NULL,
     `status` ENUM('accepted', 'pending') NOT NULL,
     PRIMARY KEY (`follower_id`, `following_id`),
-    FOREIGN KEY (`follower_id`) REFERENCES users(id),
-    FOREIGN KEY (`following_id`) REFERENCES users(id)
+    FOREIGN KEY (`follower_id`) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (`following_id`) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE `likes` (
+    `user_id` int(12) NOT NULL,
+    `entry_id` int(12) NOT NULL,
+    `created_at` datetime NOT NULL,
+    PRIMARY KEY (`user_id`, `entry_id`),
+    FOREIGN KEY (`user_id`) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (`entry_id`) REFERENCES entries(id) ON DELETE CASCADE
 );
 
