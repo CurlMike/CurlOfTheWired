@@ -21,10 +21,10 @@ class EntryPolicy
     }
 
     public function likeEntry(User $user, Model $model): bool {
-        return $user->id !== $model->user_id;
+        return true;
     }
 
     public function dislikeEntry(User $user, Model $model): bool {
-        return $user->id !== $model->user_id;
+        return true;
     }
 }

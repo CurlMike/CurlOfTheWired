@@ -79,6 +79,11 @@
                     @include('partials._entry', ['entry' => $entry])
                 @endforeach
             </div>
+            <div class="entries-liked">
+                @foreach ($likedEntries as $likedEntry)
+                    @include('partials._entry', ['entry' => $likedEntry])
+                @endforeach
+            </div>
         </div>
     </div>
     <div class="border-2 boder-white text-blue-400 font-semibold text-center items-center p-4" id="copied-to-clipboard">

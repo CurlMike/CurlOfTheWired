@@ -21,7 +21,9 @@ class UserController extends Controller
 
         $entries = $user->entries()->orderBy('created_at', 'desc')->get();
 
-        return view('users', ['user' => $user, 'entries' => $entries]);
+        $likedEntries = $user->likedEntries()->orderBy('created_at', 'desc')->get();
+
+        return view('users', ['user' => $user, 'entries' => $entries, 'likedEntries' => $likedEntries]);
     }
 
     public function editIndex($account_name) {

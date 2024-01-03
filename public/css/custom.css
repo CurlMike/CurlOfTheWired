@@ -253,7 +253,13 @@ input:focus {
     max-width: 52rem;
 }
 
-#entriesBtn,
+#entriesBtn {
+    border-bottom: 4px solid #0000FF;
+    border-top: 4px solid #0000FF;
+    transition: border-bottom 0.5s ease, border-top 0.5s ease;
+    color: #fff;
+}
+
 #likesBtn {
     border-bottom: none;
     border-top: none;
@@ -273,5 +279,9 @@ input:focus {
 }
 
 .entry-inputs #file-input {
+    display: none;
+}
+
+.entries-liked {
     display: none;
 }

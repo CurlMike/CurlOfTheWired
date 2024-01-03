@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -74,5 +75,9 @@ class User extends Authenticatable
     public function liked(Entry $entry): bool {
         return $this->hasMany(Like::class, 'user_id', 'id')
         ->where('entry_id', $entry->id)->exists();
+    }
+
+    public function likedEntries(): HasManyThrough {
+        return $this->hasManyThrough(Entry::class, Like::class, 'user_id', 'id', 'id', 'entry_id');
     }
 }
