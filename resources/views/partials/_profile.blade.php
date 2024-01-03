@@ -69,22 +69,32 @@
             <p class="text-gray-300">{{ $user->bio }}</p>
         </div>
         <hr class="w-96 h-1 mx-auto my-4 bg-white border-0 rounded md:my-6 dark:bg-gray-700" />
-        <div class="flex text-lg mx-auto text-white justify h-16 justify-between p-3 mb-4" style="max-width: 52rem;">
-            <button class="flex-1 font-semibold text-center hover:cursor-pointer border-r-2 border-l-2 border-white" id="entriesBtn">Entries</button>
-            <button class="flex-1 font-semibold text-center hover:cursor-pointer border-l-2 border-r-2 border-white" id="likesBtn">Likes</button>
-        </div>
-        <div class="text-white text-center">
-            <div class="entries">
-                @foreach ($entries as $entry)
-                    @include('partials._entry', ['entry' => $entry])
-                @endforeach
+        @if ($user->private && !auth()->user()->follows($user))
+            <div class="text-blue-500 text-center">
+                <h3 class="text-2xl font-bold">This account is private.</h3>
+                <p class="text-xl">You have to follow this account to view its posts.</p>
+                <div class="flex justify-center mt-4">
+                    <img src="{{ asset('images/private.jpg')}}" class="h-72 border-2 border-blue-800 rounded-md">
+                </div>
             </div>
-            <div class="entries-liked">
-                @foreach ($likedEntries as $likedEntry)
-                    @include('partials._entry', ['entry' => $likedEntry])
-                @endforeach
+        @else
+            <div class="flex text-lg mx-auto text-white justify h-16 justify-between p-3 mb-4" style="max-width: 52rem;">
+                <button class="flex-1 font-semibold text-center hover:cursor-pointer border-r-2 border-l-2 border-white" id="entriesBtn">Entries</button>
+                <button class="flex-1 font-semibold text-center hover:cursor-pointer border-l-2 border-r-2 border-white" id="likesBtn">Likes</button>
             </div>
-        </div>
+            <div class="text-white text-center">
+                <div class="entries">
+                    @foreach ($entries as $entry)
+                        @include('partials._entry', ['entry' => $entry])
+                    @endforeach
+                </div>
+                <div class="entries-liked">
+                    @foreach ($likedEntries as $likedEntry)
+                        @include('partials._entry', ['entry' => $likedEntry])
+                    @endforeach
+                </div>
+            </div>
+        @endif
     </div>
     <div class="border-2 boder-white text-blue-400 font-semibold text-center items-center p-4" id="copied-to-clipboard">
         <p class="mr-2 text-xl">Link copied to clipboard!</p>
